@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción</title>
+    <style>
+        .comentarios {
+            margin-top: 20px;
+        }
+
+        #lista-comentarios {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .comentario {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .comentario p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Encuesta de Satisfacción</h1>
+    </header>
+    <main>
+        <img src="tazan.jpg" width="1500px" height="750px">
+        <section class="encuesta">
+            <h2>Queremos saber tu opinión</h2>
+            <form id="encuesta-form">
+                <label for="satisfaccion">¿Qué tan satisfecho estás con nuestros servicios?</label>
+                <select id="satisfaccion" name="satisfaccion">
+                    <option value="muy-satisfecho">Muy satisfecho</option>
+                    <option value="satisfecho">Satisfecho</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="insatisfecho">Insatisfecho</option>
+                    <option value="muy-insatisfecho">Muy insatisfecho</option>
+                </select>
+                <label for="comentario">¿Tienes algún comentario o sugerencia para mejorar nuestros servicios?</label>
+                <textarea id="comentario" name="comentario" rows="5" cols="30"></textarea>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+            <div id="resultado"></div>
+        </section>
+        <section class="comentarios">
+            <h2>Comentarios</h2>
+            <div id="lista-comentarios"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Florería</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('encuesta-form');
+        const resultado = document.getElementById('resultado');
+        const listaComentarios = document.getElementById('lista-comentarios');
+        let comentarios = [];
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const satisfaccion = document.getElementById('satisfaccion').value;
+            const comentario = document.getElementById('comentario').value;
+            const datos = { satisfaccion: satisfaccion, comentario: comentario };
+
+            comentarios.push(datos);
+            mostrarComentarios();
+
+            resultado.innerHTML = '¡Gracias por tu opinión!';
+            form.reset();
+        });
+
+        function mostrarComentarios() {
+            listaComentarios.innerHTML = '';
+            comentarios.forEach((comentario) => {
+                const comentarioHTML = `
+                    <div class="comentario">
+                        <p>${comentario.comentario}</p>
+                        <p>Satisfacción: ${comentario.satisfaccion}</p>
+                    </div>
+                `;
+                listaComentarios.innerHTML += comentarioHTML;
+            });
+        }
+    </script>
+</body>
+</html>
