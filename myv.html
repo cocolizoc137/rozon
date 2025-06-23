@@ -1,86 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florería</title>
- 
-    <style type="text/css">
-            padding: 20px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florería - Misión y Visión</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.mision-vision {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fce4ec, #f8bbd0);
+      color: #333;
+      line-height: 1.6;
+      padding: 30px;
+    }
 
-.mision, .vision {
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
+    header {
+      background-color: #ec407a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
 
-.botones {
-    margin-top: 20px;
-}
+    header h1 {
+      font-size: 2.2em;
+    }
 
-.btn-primario {
-    display: inline-block;
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration :none ;
-}
+    .mision-vision {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
 
-.btn-secundario {
-    background-color: #fff;
-    color: #4CAF50;
-    padding: 10px 20px;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.btn-tercero {
-    background-color: #fff;
-    color: #4CAF50;
-    padding: 10px 20px;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    cursor: pointer;
-}
-    </style>
+    .mision-vision h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #c2185b;
+    }
+
+    .mision, .vision {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 6px solid #ec407a;
+      background-color: #fdfdfd;
+      border-radius: 10px;
+    }
+
+    .mision h3, .vision h3 {
+      color: #ad1457;
+      margin-bottom: 10px;
+    }
+
+    .botones {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn-primario, .btn-secundario, .btn-inicio {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primario {
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+    }
+
+    .btn-primario:hover {
+      background-color: #6a1b9a;
+    }
+
+    .btn-secundario {
+      background-color: #ffffff;
+      color: #8e24aa;
+      border: 2px solid #8e24aa;
+    }
+
+    .btn-secundario:hover {
+      background-color: #f3e5f5;
+    }
+
+    .btn-inicio {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+    }
+
+    .btn-inicio:hover {
+      background-color: #388e3c;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Florería:El rozon</h1>
-    </header>
-    <main>
-        <section class="mision-vision">
-            <h2>Nuestra Misión y Visión</h2>
-            <div class="mision">
-                <h3>Misión</h3>
-                <p>Nuestra misión es proporcionar arreglos florales de alta calidad que superen las expectativas de nuestros clientes, creando momentos inolvidables y embelleciendo su día a día.</p>
-            </div>
-            <div class="vision">
-                <h3>Visión</h3>
-                <p>Nuestra visión es ser la florería líder en la industria, reconocida por nuestra creatividad, atención al cliente y compromiso con la calidad y la sostenibilidad.</p>
-            </div>
-            <div class="botones">
-                <a href="galeria.html" class="btn-primario" >Conoce nuestros productos</a>
-                 <a href="contac.html" class="btn-secundario" >Extras</a>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Florería</p>
-    </footer>
+
+  <header>
+    <h1>Florería: El Rozon</h1>
+  </header>
+
+  <main>
+    <section class="mision-vision">
+      <h2>Nuestra Misión y Visión</h2>
+
+      <div class="mision">
+        <h3>Misión</h3>
+        <p>Nuestra misión es proporcionar arreglos florales de alta calidad que superen las expectativas de nuestros clientes, creando momentos inolvidables y embelleciendo su día a día.</p>
+      </div>
+
+      <div class="vision">
+        <h3>Visión</h3>
+        <p>Nuestra visión es ser la florería líder en la industria, reconocida por nuestra creatividad, atención al cliente y compromiso con la calidad y la sostenibilidad.</p>
+      </div>
+
+      <div class="botones">
+        <a href="index.html" class="btn-inicio">Inicio</a>
+        <a href="galeria.html" class="btn-primario">Conoce nuestros productos</a>
+        <a href="contac.html" class="btn-secundario">Extras</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Florería El Rozon</p>
+  </footer>
+
 </body>
 </html>

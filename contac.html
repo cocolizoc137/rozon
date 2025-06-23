@@ -1,95 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta de Satisfacción</title>
-    <style>
-        .comentarios {
-            margin-top: 20px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encuesta de Satisfacción - Florería El Rozon</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        #lista-comentarios {
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffaf9;
+      color: #444;
+      line-height: 1.6;
+    }
 
-        .comentario {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-        }
+    header {
+      background-color: #c2185b;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
 
-        .comentario p {
-            margin-bottom: 10px;
-        }
-    </style>
+    header h1 {
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-inicio {
+      display: inline-block;
+      background-color: #8bc34a;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-inicio:hover {
+      background-color: #689f38;
+    }
+
+    .encuesta {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+    }
+
+    .encuesta h2 {
+      margin-bottom: 20px;
+      color: #ad1457;
+      text-align: center;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: inherit;
+    }
+
+    .btn-enviar {
+      background-color: #f06292;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: #e91e63;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .comentarios {
+      background-color: #fce4ec;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .comentarios h2 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+
+    #lista-comentarios {
+      padding: 10px;
+    }
+
+    .comentario {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8bbd0;
+      color: #555;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Encuesta de Satisfacción</h1>
-    </header>
-    <main>
-        <img src="Brainstorming mapa mental formas orgánicas ilustrado naranja.jpg.jpg" width="1500px" height="750px">
-        <section class="encuesta">
-            <h2>Queremos saber tu opinión</h2>
-            <form id="encuesta-form">
-                <label for="satisfaccion">¿Qué tan satisfecho estás con nuestros servicios?</label>
-                <select id="satisfaccion" name="satisfaccion">
-                    <option value="muy-satisfecho">Muy satisfecho</option>
-                    <option value="satisfecho">Satisfecho</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="insatisfecho">Insatisfecho</option>
-                    <option value="muy-insatisfecho">Muy insatisfecho</option>
-                </select>
-                <label for="comentario">¿Tienes algún comentario o sugerencia para mejorar nuestros servicios?</label>
-                <textarea id="comentario" name="comentario" rows="5" cols="30"></textarea>
-                <button type="submit" class="btn-enviar">Enviar</button>
-            </form>
-            <div id="resultado"></div>
-        </section>
-        <section class="comentarios">
-            <h2>Comentarios</h2>
-            <div id="lista-comentarios"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; Florería</p>
-    </footer>
 
-    <script>
-        const form = document.getElementById('encuesta-form');
-        const resultado = document.getElementById('resultado');
-        const listaComentarios = document.getElementById('lista-comentarios');
-        let comentarios = [];
+  <header>
+    <h1>Encuesta de Satisfacción</h1>
+  </header>
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const satisfaccion = document.getElementById('satisfaccion').value;
-            const comentario = document.getElementById('comentario').value;
-            const datos = { satisfaccion: satisfaccion, comentario: comentario };
+  <main>
+    <a href="index.html" class="btn-inicio">Inicio</a>
 
-            comentarios.push(datos);
-            mostrarComentarios();
+    <img src="Brainstorming mapa mental formas orgánicas ilustrado naranja.jpg" alt="Imagen de Encuesta">
 
-            resultado.innerHTML = '¡Gracias por tu opinión!';
-            form.reset();
-        });
+    <section class="encuesta">
+      <h2>Queremos saber tu opinión</h2>
+      <form id="encuesta-form">
+        <label for="satisfaccion">¿Qué tan satisfecho estás con nuestros servicios?</label>
+        <select id="satisfaccion" name="satisfaccion">
+          <option value="muy-satisfecho">Muy satisfecho</option>
+          <option value="satisfecho">Satisfecho</option>
+          <option value="neutral">Neutral</option>
+          <option value="insatisfecho">Insatisfecho</option>
+          <option value="muy-insatisfecho">Muy insatisfecho</option>
+        </select>
 
-        function mostrarComentarios() {
-            listaComentarios.innerHTML = '';
-            comentarios.forEach((comentario) => {
-                const comentarioHTML = `
-                    <div class="comentario">
-                        <p>${comentario.comentario}</p>
-                        <p>Satisfacción: ${comentario.satisfaccion}</p>
-                    </div>
-                `;
-                listaComentarios.innerHTML += comentarioHTML;
-            });
-        }
-    </script>
+        <label for="comentario">¿Tienes algún comentario o sugerencia?</label>
+        <textarea id="comentario" name="comentario" rows="5"></textarea>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+      <div id="resultado"></div>
+    </section>
+
+    <section class="comentarios">
+      <h2>Comentarios</h2>
+      <div id="lista-comentarios"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Florería El Rozon</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('encuesta-form');
+    const resultado = document.getElementById('resultado');
+    const listaComentarios = document.getElementById('lista-comentarios');
+    let comentarios = [];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const satisfaccion = document.getElementById('satisfaccion').value;
+      const comentario = document.getElementById('comentario').value.trim();
+
+      if (!comentario) {
+        resultado.textContent = 'Por favor escribe un comentario.';
+        resultado.style.color = '#c62828';
+        return;
+      }
+
+      const datos = { satisfaccion, comentario };
+      comentarios.unshift(datos);
+      mostrarComentarios();
+
+      resultado.textContent = '¡Gracias por tu opinión!';
+      resultado.style.color = '#2e7d32';
+      form.reset();
+    });
+
+    function mostrarComentarios() {
+      listaComentarios.innerHTML = '';
+      comentarios.forEach((comentario) => {
+        const comentarioHTML = `
+          <div class="comentario">
+            <p><strong>Comentario:</strong> ${comentario.comentario}</p>
+            <p><strong>Satisfacción:</strong> ${comentario.satisfaccion}</p>
+          </div>
+        `;
+        listaComentarios.innerHTML += comentarioHTML;
+      });
+    }
+  </script>
 </body>
 </html>

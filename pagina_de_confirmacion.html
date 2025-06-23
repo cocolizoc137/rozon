@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pago</title>
+    <link rel="stylesheet" href="stilot.css">
+    <style>
+        #formulario-pago {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('pvz.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div id="formulario-pago">
+    <h2>Resumen de Compra</h2>
+    <ul id="resumen-compra"></ul>
+
+    <form id="form-pago">
+        <label for="tarjeta">Número de Tarjeta de Crédito:</label>
+        <input type="text" id="tarjeta" maxlength="16" pattern="\d{16}" required>
+
+        <label for="fecha">Fecha de Vencimiento (MMYY):</label>
+        <input type="text" id="fecha" maxlength="4" pattern="\d{4}" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" maxlength="3" pattern="\d{3}" required>
+
+        <input type="submit" value="Pagar">
+    </form>
+</div>
+
+<script>
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const resumenCompra = document.getElementById("resumen-compra");
+    let total = 0;
+
+    carrito.forEach(producto => {
+        const li = document.createElement("li");
+
+        if (producto.cantidad && producto.subtotal) {
+            li.textContent = `${producto.item} – Cantidad: ${producto.cantidad} – Subtotal: $${producto.subtotal.toFixed(2)}`;
+            total += producto.subtotal;
+        } else {
+            li.textContent = `${producto.item} – Precio: $${producto.precio.toFixed(2)}`;
+            total += producto.precio;
+        }
+
+        resumenCompra.appendChild(li);
+    });
+
+    const totalLi = document.createElement("li");
+    totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    resumenCompra.appendChild(totalLi);
+
+    // Validar solo números
+    ["tarjeta", "fecha", "cvv"].forEach(id => {
+        document.getElementById(id).addEventListener("input", function () {
+            this.value = this.value.replace(/[^\d]/g, '');
+        });
+    });
+
+    document.getElementById("form-pago").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        alert("¡Pago exitoso! Gracias por tu compra.");
+        localStorage.removeItem("carrito");
+        window.location.href = "comprad.html";
+    });
+</script>
+
+</body>
+</html>

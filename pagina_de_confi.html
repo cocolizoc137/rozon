@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Página de Pago</title>
+  <link rel="stylesheet" href="stilot.css">
+  <style>
+    #formulario-pago {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.95);
+      border-radius: 10px;
+    }
+    input[type="text"], input[type="number"], input[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    body {
+      background-image: url('pvz.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div id="formulario-pago">
+  <h2>Resumen de tu Compra</h2>
+  <ul id="resumen-compra"></ul>
+
+  <form id="form-pago">
+    <label for="tarjeta">Número de Tarjeta de Crédito:</label>
+    <input type="text" id="tarjeta" required maxlength="16" pattern="\d{16}">
+
+    <label for="fecha">Fecha de Vencimiento (MM/YY):</label>
+    <input type="text" id="fecha" placeholder="MMYY" required maxlength="4" pattern="\d{4}">
+
+    <label for="cvv">CVV:</label>
+    <input type="number" id="cvv" min="100" max="999" required>
+
+    <input type="submit" value="Pagar">
+  </form>
+</div>
+
+<script>
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const resumen = document.getElementById("resumen-compra");
+  let total = 0;
+
+  carrito.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.item} - Cantidad: ${item.cantidad} - Subtotal: $${item.subtotal.toFixed(2)}`;
+    total += item.subtotal;
+    resumen.appendChild(li);
+  });
+
+  const totalLi = document.createElement("li");
+  totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+  resumen.appendChild(totalLi);
+
+  document.getElementById("form-pago").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const tarjeta = document.getElementById("tarjeta").value;
+    if (tarjeta.length !== 16 || isNaN(tarjeta)) {
+      alert("Número de tarjeta inválido");
+      return;
+    }
+
+    alert("¡Pago exitoso! Gracias por tu compra.");
+    localStorage.removeItem("carrito");
+    window.location.href = "comprad.html";
+  });
+</script>
+
+</body>
+</html>

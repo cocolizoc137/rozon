@@ -1,0 +1,158 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cuerpo general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Encabezado */
+#h_1 {
+  background: linear-gradient(to right, #b2dfdb, #80cbc4);
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #004d40;
+  border-bottom: 4px solid #26a69a;
+}
+
+/* Navegación */
+header nav {
+  background: #004d40;
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+header nav ul li {
+  position: relative;
+}
+
+header nav ul li a {
+  display: block;
+  padding: 20px 25px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+header nav ul li:hover {
+  background: #00796b;
+}
+
+header nav ul li a span {
+  margin-right: 10px;
+}
+
+/* Submenú */
+header nav ul li .hijo {
+  display: none;
+  position: absolute;
+  background: #004d40;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  z-index: 1000;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+header nav ul li:hover .hijo {
+  display: block;
+}
+
+header nav ul li .hijo li {
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+header nav ul li .hijo li a {
+  padding: 15px 20px;
+  color: #ffffff;
+}
+
+header nav ul li .hijo li a:hover {
+  background-color: #00796b;
+}
+
+header nav ul li .hijo li a span {
+  float: right;
+  margin-left: 10px;
+}
+
+/* Íconos de flecha */
+header nav ul li .flecha {
+  margin-left: 10px;
+  position: relative;
+  top: 3px;
+}
+
+/* Secciones personalizadas */
+#h_2 {
+  background-color: #ff7043; /* naranja floral */
+  color: white;
+  padding: 10px;
+}
+
+#s_2 {
+  background-color: #aed581; /* verde pasto claro */
+  padding: 15px;
+}
+
+/* Fondo del body oscuro para contraste */
+#bd {
+  background-color: #fafafa;
+}
+
+/* Formulario de pago */
+#formulario-pago {
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* Inputs y botones del formulario */
+#formulario-pago input[type="text"],
+#formulario-pago input[type="number"],
+#formulario-pago input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#formulario-pago input[type="submit"] {
+  background-color: #00897b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#formulario-pago input[type="submit"]:hover {
+  background-color: #00695c;
+}

@@ -1,90 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florería</title>
-    <style type="text/css">
-        header {
-    background-color: #4CAF50;
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Florería</title>
+  <style>
+    /* Reset y estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+    }
 
-.encuesta {
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
+    /* Encabezado */
+    header {
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+      padding: 20px;
+      text-align: center;
+      color: #3e3e3e;
+      font-size: 32px;
+      font-weight: bold;
+      border-bottom: 4px solid #f48fb1;
+    }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-}
+    header a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 16px;
+      text-decoration: none;
+      color: #00796b;
+    }
 
-select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-}
+    /* Sección principal */
+    .arreglos {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-.btn-enviar {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    .arreglos h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #00796b;
+    }
 
-    </style>
+    .arreglo {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .arreglo img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .arreglo h3 {
+      font-size: 22px;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .arreglo p {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .arreglo h4 {
+      color: #d32f2f;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .arreglo input[type="number"] {
+      padding: 8px;
+      font-size: 16px;
+      width: 70px;
+      text-align: center;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .arreglo button {
+      padding: 12px 25px;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .arreglo button:hover {
+      background-color: #d81b60;
+    }
+
+    footer {
+      background-color: #00796b;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Florería</h1>
-    </header>
-    <main>
-        <section class="arreglos">
-            <h2>Nuestros Arreglos Florales</h2>
-            <div class="arreglo">
-                <img src="rosas.jpg" alt="Arreglo Floral 1">
-                <h3>Arreglo de Rosas</h3>
-                <p>Un arreglo elegante y romántico compuesto por 12 rosas rojas frescas, perfectas para expresar amor y pasión.</p>
-                <p class="precio">Precio: $50</p>
-            </div>
-            <div class="arreglo">
-                <img src="tuli.jpg" alt="Arreglo Floral 2">
-                <h3>Arreglo de Tulipanes y Lirios</h3>
-                <p>Un arreglo colorido que combina tulipanes y lirios frescos, ideal para alegrar cualquier espacio.</p>
-                <p class="precio">Precio: $40</p>
-            </div>
-            <div class="arreglo">
-                <img src="orq.jpg" alt="Arreglo Floral 3">
-                <h3>Arreglo de Orquídeas y Suculentas</h3>
-                <p>Un arreglo sofisticado y elegante que combina orquídeas y suculentas frescas, perfecto para decorar cualquier habitación.</p>
-                <p class="precio">Precio: $60</p>
-            </div>
-            <div class="arreglo">
-                <img src="gira.jpg" alt="Arreglo Floral 4">
-                <h3>Arreglo de Girasoles</h3>
-                <p>Un arreglo hermoso para regalar a esa persona especial.</p>
-                <p class="precio">Precio: $60</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; El rozon</p>
-    </footer>
+  <header>
+    Florería
+    <br>
+    <a href="index.html">Inicio</a>
+  </header>
+
+  <main>
+    <section class="arreglos">
+      <h2>Nuestros Arreglos Florales</h2>
+
+      <div class="arreglo">
+        <img src="rosas.jpg" alt="Arreglo de Rosas" width="250px" height="250">
+        <h3>Arreglo de Rosas</h3>
+        <p>Un arreglo elegante con 12 rosas rojas.</p>
+        <h4>$60</h4>
+        <label for="cantidad1">Cantidad:</label><br>
+        <input type="number" id="cantidad1" value="0" min="0"><br>
+        <button onclick="enviarAlPago()">Comprar</button>
+      </div>
+
+      <div class="arreglo">
+        <img src="tuli.jpg" alt="Arreglo de Tulipanes y Lirios">
+        <h3>Arreglo de Tulipanes y Lirios</h3>
+        <p>Ideal para alegrar cualquier espacio.</p>
+        <h4>$40</h4>
+        <label for="cantidad2">Cantidad:</label><br>
+        <input type="number" id="cantidad2" value="0" min="0"><br>
+        <button onclick="enviarAlPago()">Comprar</button>
+      </div>
+
+      <div class="arreglo">
+        <img src="orq.jpg" alt="Arreglo de Orquídeas y Suculentas">
+        <h3>Arreglo de Orquídeas y Suculentas</h3>
+        <p>Sofisticado y elegante.</p>
+        <h4>$60</h4>
+        <label for="cantidad3">Cantidad:</label><br>
+        <input type="number" id="cantidad3" value="0" min="0"><br>
+        <button onclick="enviarAlPago()">Comprar</button>
+      </div>
+
+      <div class="arreglo">
+        <img src="gira.jpg" alt="Arreglo de Girasoles">
+        <h3>Arreglo de Girasoles</h3>
+        <p>Hermoso regalo para alguien especial.</p>
+        <h4>$60</h4>
+        <label for="cantidad4">Cantidad:</label><br>
+        <input type="number" id="cantidad4" value="0" min="0"><br>
+        <button onclick="enviarAlPago()">Comprar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; El Rozón - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    function enviarAlPago() {
+      const productos = [
+        { nombre: "Rosas", precio: 60, cantidad: parseInt(document.getElementById("cantidad1").value) },
+        { nombre: "Tulipanes y Lirios", precio: 40, cantidad: parseInt(document.getElementById("cantidad2").value) },
+        { nombre: "Orquídeas y Suculentas", precio: 60, cantidad: parseInt(document.getElementById("cantidad3").value) },
+        { nombre: "Girasoles", precio: 60, cantidad: parseInt(document.getElementById("cantidad4").value) },
+      ];
+
+      const carrito = productos
+        .filter(p => !isNaN(p.cantidad) && p.cantidad > 0)
+        .map(p => ({
+          item: p.nombre,
+          precio: p.precio,
+          cantidad: p.cantidad,
+          subtotal: p.precio * p.cantidad
+        }));
+
+      if (carrito.length === 0) {
+        alert("Por favor selecciona al menos un producto.");
+        return;
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      window.location.href = "pagina_de_confi.html";
+    }
+  </script>
 </body>
 </html>
